@@ -1,0 +1,256 @@
+#base
+[base]
+isloginurl=http://upload.renren.com/fcgi/islogin.do
+savegroups=fmn056,/bigpool/fmn056 | fmn057,/bigpool/fmn057 | fmn058,/bigpool/fmn058 | fmn059,/bigpool/fmn059 | fmn060,/bigpool/fmn060 | fmn061,/bigpool/fmn061 | fmn062,/bigpool/fmn062 | fmn063,/bigpool/fmn063 | fmn064,/bigpool/fmn064 | fmn065,/bigpool/fmn065
+
+#图像类型
+[image:base]
+filesizelimit=8
+exts=bmp,jpeg,jpg,gif,png
+saveimages=720,1080,large,0,90 | 200,0,main,0,89 | 100,0,head,0,80 | 50,50,tiny,1,80		#(宽,高,文件名前缀2,是否裁剪,保存质量)
+sizerate=0.33,0											#宽高比范围
+minsize=50,50											#最小的宽高
+
+#视频类型
+[video:base]
+filesizelimit=50
+exts=flv
+savenameprefix=v
+savesubdir=video
+afterurl=http://upload.renren.com/fcgi/videocallback.do
+#不涉及到存储DB,只会用到转换URL之类的操作，名字都为callback
+
+#附件类型
+[attachment:base]
+filesizelimit=50
+savenameprefix=a
+savesubdir=attachment
+afterurl=http://upload.renren.com/fcgi/getfullurl.do
+
+
+#头像相册
+[head:image]
+filesizelimit=4
+saveimages=600,900,large,0,90 | 200,0,main,0,90 | 100,0,head,0,90 | 400,400,flex,1,90 | 50,50,tiny,1,90		#(宽,高,文件名前缀2,是否裁剪,保存质量)
+savegroups=hdn121,/bigpool/photos/hdn121 | hdn221,/bigpool/photos/hdn221 | hdn321,/bigpool/photos/hdn321 | hdn421,/bigpool/photos/hdn421 | hdn521,/bigpool/photos/hdn521
+savenameprefix=h
+sizerate=0.33,0
+minsize=50,50
+afterurl=http://head2.upload.renren.com/fcgi/headsavedb.do
+
+#小站头像相册
+[xiaozhan_head:image]
+filesizelimit=4
+saveimages=600,900,large,0,90 | 200,0,main,0,90 | 100,0,head,0,90 | 80,80,tiny,1,90		#(宽,高,文件名前缀2,是否裁剪,保存质量)
+savegroups=hdn121,/bigpool/photos/hdn121 | hdn221,/bigpool/photos/hdn221 | hdn321,/bigpool/photos/hdn321 | hdn421,/bigpool/photos/hdn421 | hdn521,/bigpool/photos/hdn521
+savenameprefix=h
+sizerate=0.33,0
+minsize=80,80
+afterurl=http://head2.upload.renren.com/fcgi/headsavedb.do
+
+#普通相册
+[album:image]
+savenameprefix=p
+afterurl=http://upload.renren.com/fcgi/albumsavedb.do
+
+#手机上传
+[mobile_album:album]
+saveimages=720,1080,large,0,100 | 200,0,main,0,89 | 100,0,head,0,80 | 50,50,tiny,1,80	
+savenameprefix=m
+afterurl=
+
+#预处理图
+[prehandle_album:album]
+saveimages=720,1080,large,0,100 | 200,0,main,0,89 | 100,0,head,0,80 | 50,50,tiny,1,80	
+
+#活动相册
+[event_album:album]
+savenameprefix=e
+afterurl=http://upload.renren.com/fcgi/eventsavedb.do
+
+#高中上传
+[highSchool_pic:image]
+savenameprefix=h
+afterurl=http://upload.renren.com/fcgi/highSchoolSaveStorage.do
+
+
+#日志图片
+[blog_pic:image]
+saveimages=580,0,large,0,90 | 100,0,head,0,80
+savenameprefix=b
+#savesubdir=blog
+afterurl=http://upload.renren.com/fcgi/imagesavedb.do
+
+#视频封面图片
+[video_cover:image]
+savenameprefix=v
+savesubdir=video
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#活动封面图片
+[event_cover:image]
+savenameprefix=e
+savesubdir=event
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+
+#新鲜事中心上传图片
+[feed_pic:image]
+savenameprefix=f
+savesubdir=feed
+saveimages=100,0,head,0		#(宽,高,文件名前缀2,是否裁剪)
+afterurl=http://upload.renren.com/fcgi/getfullurl.do
+
+#班级相册
+[class_album:album]
+savesubdir=class
+savenameprefix=c
+afterurl=
+
+#群组相册
+[group_album:album]
+savesubdir=group
+savenameprefix=g
+afterurl=
+
+#群组附件 
+[group_attachment:attachment]
+
+#留言图片
+[gossip_pic:image]
+saveimages=600,900,large,0,90 | 100,0,head,0,80		#(宽,高,文件名前缀2,是否裁剪)
+savenameprefix=g
+#savesubdir=gossip
+afterurl=
+
+#page上传皮肤图片
+[page_skin:image]
+saveimages=0,0,large,0,90 | 100,0,head,0,90		#(宽,高,文件名前缀2,是否裁剪)
+filesizelimit=5
+savesubdir=page_skin
+afterurl=http://upload.renren.com/fcgi/skincallback.do
+sizerate=0,0											#宽高比范围 0,0表示不检查
+minsize=0,0											#最小的宽高 0,0表示不检查
+
+#page地图
+[page_map:image]
+savesubdir=page_map
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#minigroup照片上传
+[minigroup_pic:image]
+savesubdir=minigroup_pic
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#page上传简历图片
+[page_resume:image]
+saveimages=100,0,head,0,95		#(宽,高,文件名前缀2,是否裁剪)
+filesizelimit=1
+savesubdir=page_resume
+afterurl=http://upload.renren.com/fcgi/getfullurl.do
+sizerate=0,0											#宽高比范围 0,0表示不检查
+minsize=0,0											#最小的宽高 0,0表示不检查
+
+
+#上传生成可配置的缩略图,由客户端传过来的参数w和h决定生成的缩略图大小，不由配置决定。只生成一张图，回调js，通用接口
+#不裁减，生成图片不要large,main这类的前缀名称，质量统一100，全部缩成jpeg格式
+[image_configured:image]
+savenameprefix=c
+savesubdir=cimage
+saveimages=0,0,,0,100		#虽然写在这里，但只是给生成图片地址用，宽度，高度都是程序中指定的
+afterurl=http://upload.renren.com/fcgi/getfullurl.do
+
+#手书相册
+[book_album:event_album]
+saveimages=600,900,large,0,90 | 200,0,main,0,90 | 100,0,head,0,90 | 50,62,tiny,1,90    
+savenameprefix=e
+afterurl=http://upload.renren.com/fcgi/eventsavedb.do
+
+#LBS地图
+[lbs_map:image]
+savesubdir=lbs_map
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+
+#微博照片
+[v_pic:image]
+savesubdir=v_pic
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#音乐自选封面
+[music_cover:image]
+saveimages=720,1080,large,0,100 | 120,0,main,0,89 | 80,0,head,0,80 | 64,64,tiny,1,80
+savesubdir=music_cover
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#后台截屏照片
+[amdin_prScrn:image]
+savenameprefix=a
+savesubdir=admin
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#小站照片上传
+[xiaozhan_photo:image]
+savenameprefix=x
+savesubdir=xiaozhan
+saveimages=1024,1024,large,0,90 | 200,0,main,0,89 | 100,0,head,0,80 | 50,50,tiny,1,80		#(宽,高,文件名前缀2,是否裁剪,保存质量)
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#vip头像提供存储
+[viphead:image]
+saveimages=58,58,tiny,1,80
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+#普通相册旋转
+[rotatePhoto:image]
+saveimages=720,1080,large,0,100 | 200,0,main,0,89 | 100,0,head,0,80 | 50,50,tiny,1,80
+savenameprefix=p
+
+#九宫格日记上传
+[diaryPhoto:image]
+savesubdir=box_diary
+afterurl=http://upload.renren.com/image/save
+
+#九宫格日记截图上传
+[diaryScreenshot:image]
+savesubdir=box_diary
+
+#亲情
+[qinqing:image]
+savesubdir=qinqing
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+# 
+[addPhotoAPI:image]
+savenameprefix=p
+afterurl=http://upload.renren.com/fcgi/albumsavedb.do
+
+#原图不转
+[addOriginal:image]
+saveimages=0,0,large,0,0
+savesubdir=original
+fterurl=http://upload.renren.com/fcgi/covercallback.do
+minsize=16,16
+
+#3G应用截图
+[add3GAPP:image]
+saveimages=470,352,large,0,90 | 100,72,main,0,80 #(宽,高,文件名前缀2,是否裁剪,保存质量)
+savesubdir=3gapp
+fterurl=http://upload.renren.com/fcgi/covercallback.do
+minsize=16,16
+
+[addShop:image]
+savesubdir=shop
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+
+[admin_album:image]
+saveimages=720,1080,large,0,85 | 0,200,main,0,80 | 200,0,main1,0,80 #(宽,高,文件名前缀2,是否裁剪,保存质量)
+savesubdir=admin
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+minsize=16,16
+
+[addStateWallLogo:image]
+saveimages=80,80,head,1,80 #(宽,高,文件名前缀2,是否裁剪,保存质量)
+savesubdir=statewall
+afterurl=http://upload.renren.com/fcgi/covercallback.do
+minsize=16,16
